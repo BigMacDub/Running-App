@@ -1,0 +1,62 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Google Maps Directions API",
+    "version": "1.0.0",
+    "description": "Returns walking/running directions using Google Maps"
+  },
+  "servers": [
+    {
+      "url": "https://maps.googleapis.com"
+    }
+  ],
+  "paths": {
+    "/maps/api/directions/json": {
+      "get": {
+        "operationId": "getDirections",
+        "summary": "Get walking directions",
+        "parameters": [
+          {
+            "name": "origin",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "destination",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": ["walking"]
+            }
+          },
+          {
+            "name": "key",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "key=API_KEY"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful route directions"
+          }
+        }
+      }
+    }
+  }
+}
